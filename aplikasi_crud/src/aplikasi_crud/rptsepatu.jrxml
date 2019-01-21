@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="21ac7ee9-0e1e-4bd6-877e-8a5597f43734">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="35"/>
+	<parameter name="Kode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     tb_sepatu.`kd_sepatu` AS tb_sepatu_kd_sepatu,
+     tb_sepatu.`merk` AS tb_sepatu_merk,
+     tb_sepatu.`nm_item` AS tb_sepatu_nm_item,
+     tb_sepatu.`qty` AS tb_sepatu_qty,
+     tb_sepatu.`hrg_satuan` AS tb_sepatu_hrg_satuan,
+     tb_sepatu.`tot_harga` AS tb_sepatu_tot_harga
+FROM
+     `tb_sepatu` tb_sepatu]]>
+	</queryString>
+	<field name="tb_sepatu_kd_sepatu" class="java.lang.String"/>
+	<field name="tb_sepatu_merk" class="java.lang.String"/>
+	<field name="tb_sepatu_nm_item" class="java.lang.String"/>
+	<field name="tb_sepatu_qty" class="java.lang.Integer"/>
+	<field name="tb_sepatu_hrg_satuan" class="java.lang.Integer"/>
+	<field name="tb_sepatu_tot_harga" class="java.lang.Integer"/>
+	<variable name="total" class="java.lang.Double" incrementType="Report" calculation="Sum"/>
+	<variable name="totqty" class="java.lang.Double" calculation="Sum"/>
+	<variable name="tb_sepatu_tot_harga_1" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{tb_sepatu_tot_harga}]]></variableExpression>
+	</variable>
+	<variable name="tb_sepatu_qty_1" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{tb_sepatu_qty}]]></variableExpression>
+	</variable>
+	<group name="tb_sepatu_kd_sepatu">
+		<groupExpression><![CDATA[$F{tb_sepatu_kd_sepatu}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="101" splitType="Stretch">
+			<staticText>
+				<reportElement x="152" y="14" width="252" height="20" uuid="c119de67-53db-48a6-9f0e-e9fceba435ff"/>
+				<textElement>
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PT. ADIL MAKMUR SEJAHTERA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="34" width="236" height="20" uuid="83cf5b6b-8fde-4ba5-b19b-e6a2c9414998"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Jln. Raya Serang KM. 10 Bitung tangerang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="54" width="127" height="20" uuid="501f4ce9-bcc5-4586-82ee-7319fd6630b3"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Telp : (021) 5676577]]></text>
+			</staticText>
+			<image>
+				<reportElement x="13" y="14" width="107" height="60" uuid="a064af1e-e28e-462c-b595-727b838afecd"/>
+				<imageExpression><![CDATA["C:\\Users\\sofian hidayat\\Pictures\\thT92RNLBA.jpg"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="86" width="555" height="2" uuid="2e7d8649-1963-4f05-92fe-562852239616"/>
+			</line>
+			<line>
+				<reportElement x="0" y="90" width="555" height="2" uuid="92a6bb2d-b811-4432-98c8-ecac56539709"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="73" splitType="Stretch">
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="444" y="0" width="111" height="20" uuid="92bb462f-125b-450c-ae68-92a4ba8e3739"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="385" y="0" width="59" height="20" uuid="d403dabb-3828-4494-979f-0caeae2f81c9"/>
+				<text><![CDATA[Tangerang, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="32" width="555" height="20" uuid="f96debd0-a80b-4d07-bb51-9acb561bb660"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN DATA SEPATU]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="455" y="18" width="100" height="20" uuid="23e8238b-c7fb-4836-8223-22e66773f455"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Total harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="289" y="20" width="106" height="20" uuid="29075af8-7f7e-4e43-a196-cf6ad36e923f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Harga Satuan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="70" height="20" uuid="de7bbdc7-3a2c-49e0-b336-4d4605d03144"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Kode Sepatu]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="20" width="92" height="20" uuid="40ba7a8f-e28f-4e58-9996-51dbce9c9801"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Merk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="20" width="126" height="20" uuid="542780ec-f3e0-4ac6-a5e3-5c721bac0927"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nama Item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="20" width="61" height="20" uuid="3a87110e-bae7-4cd5-9bd4-b0d056634749"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="40" width="555" height="2" uuid="5a20e7a9-c7c6-4cc2-8974-412585822c7f"/>
+			</line>
+			<line>
+				<reportElement x="0" y="18" width="555" height="2" uuid="12d28444-f080-4bf0-8465-1e13ecb2f290"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="457" y="3" width="99" height="20" uuid="c2bbb810-89a8-4522-acac-56ed810c6544"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_sepatu_tot_harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="287" y="3" width="107" height="20" uuid="3bf8370b-ee31-442e-b17a-0345885cef01"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_sepatu_hrg_satuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="3" width="70" height="20" uuid="4212e126-d142-44b4-a0a4-053125196088"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_sepatu_kd_sepatu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="3" width="92" height="20" uuid="b1f294bb-0972-4b4c-bdb4-77300ce2f989"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_sepatu_merk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="3" width="126" height="20" uuid="0d36dbc3-a246-4076-8a01-aa06095fe21d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_sepatu_nm_item}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="3" width="61" height="20" uuid="ff711a0d-a641-4f29-9d3b-405f75b7a476"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tb_sepatu_qty}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="27" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="143" splitType="Stretch">
+			<staticText>
+				<reportElement x="432" y="0" width="72" height="20" uuid="016c4cf3-2776-4b40-985d-b73e3aa2c644"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Mengetahui]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="444" y="20" width="49" height="17" uuid="1afd3b95-37b6-431b-8109-12ce7ce0a3a1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="432" y="69" width="73" height="17" uuid="07f6e654-830c-4bb0-b2dc-f66b814bbfdf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Yana  Reza]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="444" y="116" width="60" height="20" uuid="64743084-7fec-4db6-8fde-06ce33213f98"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="504" y="116" width="40" height="20" uuid="31b495c3-8c40-4121-8967-d3b055fe1ac9"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="103" width="555" height="2" uuid="67a25489-bcdf-4fee-8e35-3bb8d1256a1c"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="287" y="0" width="98" height="20" uuid="b770b608-70a6-4d49-a7b4-ac8cb24e8fe4"/>
+				<textElement textAlignment="Center" verticalAlignment="Top"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="457" y="0" width="98" height="20" uuid="2621ce33-5879-437b-884b-d205191f24f2"/>
+				<textElement textAlignment="Center">
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{tb_sepatu_tot_harga_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="0" width="62" height="20" uuid="8df1c823-960b-46d2-be8c-62e67496ea7e"/>
+				<textElement textAlignment="Center">
+					<font isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{tb_sepatu_qty_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
