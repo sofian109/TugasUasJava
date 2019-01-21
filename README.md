@@ -10,7 +10,7 @@ Semester 6
 Sistem Informasi
 <br>
 1. Form Data Sepatu<br>
-![alt](https://github.com/sofian109/TugasUasJava/blob/master/images/form_data_sepatu.png)
+![alt text](https://github.com/sofian109/TugasUasJava/blob/master/images/form_data_sepatu.png)
 <br>
 2. Form Data Sepatu 2<br>
-![alt](https://github.com/sofian109/TugasUasJava/blob/master/images/form_data_sepatu2.png)
+![alt text](https://github.com/sofian109/TugasUasJava/blob/master/images/form_data_sepatu2.png)
